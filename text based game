@@ -1,0 +1,261 @@
+import java.util.Scanner;
+
+public class ForestOfShadowsExpanded {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("🌲 Forest of Shadows: The Endless Path 🌲");
+        startAdventure();
+        scanner.close();
+    }
+
+    static void startAdventure() {
+        System.out.println("\nYou awaken in a misty forest clearing.");
+        System.out.println("1. Look around carefully");
+        System.out.println("2. Check your glowing pendant");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathLookAround(1);
+        } else {
+            pathPendant(1);
+        }
+    }
+
+    static int getChoice(int maxOption) {
+        int choice = 0;
+        while (choice < 1 || choice > maxOption) {
+            System.out.print("Enter your choice (1-" + maxOption + "): ");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                choice = 0;
+            }
+            if (choice < 1 || choice > maxOption) {
+                System.out.println("Invalid choice. Try again.");
+            }
+        }
+        return choice;
+    }
+
+    // --- Branch 1: Look Around Path ---
+
+    static void pathLookAround(int depth) {
+        System.out.println("\nYou spot a faint trail leading deeper into the forest.");
+        System.out.println("1. Follow the trail");
+        System.out.println("2. Climb a nearby tree for a better view");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathTrail(depth + 1);
+        } else {
+            pathClimbTree(depth + 1);
+        }
+    }
+
+    static void pathTrail(int depth) {
+        System.out.println("\nThe trail forks into three paths.");
+        System.out.println("1. Path covered in glowing mushrooms");
+        System.out.println("2. Path strewn with broken arrows");
+        System.out.println("3. Path with deep footprints");
+        int choice = getChoice(3);
+
+        switch (choice) {
+            case 1: pathMushroomPath(depth + 1); break;
+            case 2: pathArrowPath(depth + 1); break;
+            case 3: pathFootprintPath(depth + 1); break;
+        }
+    }
+
+    static void pathMushroomPath(int depth) {
+        System.out.println("\nThe glowing mushrooms light your way.");
+        System.out.println("1. Pick some mushrooms");
+        System.out.println("2. Proceed cautiously");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou feel a sudden rush of energy! Your vision sharpens.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nYou step on a hidden trap! You fall into a pit. 💀 GAME OVER");
+        }
+    }
+
+    static void pathArrowPath(int depth) {
+        System.out.println("\nBroken arrows hint at a battle here.");
+        System.out.println("1. Search for survivors");
+        System.out.println("2. Avoid the area");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou find a wounded warrior who gives you a map.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nYou avoid danger and find a quiet pond.");
+            pathPond(depth + 1);
+        }
+    }
+
+    static void pathFootprintPath(int depth) {
+        System.out.println("\nThe footprints lead to an old campsite.");
+        System.out.println("1. Investigate the campsite");
+        System.out.println("2. Set up your own camp nearby");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou find a journal that speaks of a hidden treasure.");
+            pathHiddenTreasure(depth + 1);
+        } else {
+            System.out.println("\nYou rest peacefully but wake to strange noises.");
+            pathNightAttack(depth + 1);
+        }
+    }
+
+    static void pathClimbTree(int depth) {
+        System.out.println("\nFrom the treetop you see a distant glowing tower.");
+        System.out.println("1. Head towards the tower");
+        System.out.println("2. Descend and explore the river nearby");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathTower(depth + 1);
+        } else {
+            pathRiver(depth + 1);
+        }
+    }
+
+    static void pathPond(int depth) {
+        System.out.println("\nAt the pond, you see something shining beneath the water.");
+        System.out.println("1. Dive in to retrieve it");
+        System.out.println("2. Ignore it and rest by the shore");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou find a magical amulet! It glows warmly.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nWhile resting, you are ambushed by bandits! 💀 GAME OVER");
+        }
+    }
+
+    static void pathHiddenTreasure(int depth) {
+        System.out.println("\nThe journal mentions a cave guarded by riddles.");
+        System.out.println("1. Seek the cave");
+        System.out.println("2. Ignore and explore the forest");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathRiddleCave(depth + 1);
+        } else {
+            pathLostForest(depth + 1);
+        }
+    }
+
+    static void pathNightAttack(int depth) {
+        System.out.println("\nCreatures attack your camp in the night!");
+        System.out.println("1. Fight bravely");
+        System.out.println("2. Flee into the forest");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou fend off the attackers and find a hidden path.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nYou get lost and succumb to the wilds. 💀 GAME OVER");
+        }
+    }
+
+    static void pathTower(int depth) {
+        System.out.println("\nThe tower door is locked with a strange mechanism.");
+        System.out.println("1. Try to pick the lock");
+        System.out.println("2. Search for a key around the tower");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou succeed and enter the tower.");
+            pathTowerInterior(depth + 1);
+        } else {
+            System.out.println("\nYou find a hidden key under a stone.");
+            pathTowerInterior(depth + 1);
+        }
+    }
+
+    static void pathTowerInterior(int depth) {
+        System.out.println("\nInside the tower you find ancient scrolls.");
+        System.out.println("1. Read the scrolls");
+        System.out.println("2. Ignore and climb to the top");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe scrolls reveal secrets of the forest.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nAt the top, you see a portal shimmering.");
+            System.out.println("1. Enter the portal");
+            System.out.println("2. Return downstairs");
+            choice = getChoice(2);
+
+            if (choice == 1) {
+                System.out.println("\nYou are transported to a strange realm. 🏆 YOU WIN!");
+            } else {
+                pathRuins(depth + 1);
+            }
+        }
+    }
+
+    static void pathRiver(int depth) {
+        System.out.println("\nThe river has a rickety old bridge.");
+        System.out.println("1. Cross the bridge");
+        System.out.println("2. Follow the river downstream");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe bridge collapses and you fall into the water. 💀 GAME OVER");
+        } else {
+            System.out.println("\nYou find a boat and row to a small island.");
+            pathIsland(depth + 1);
+        }
+    }
+
+    static void pathIsland(int depth) {
+        System.out.println("\nOn the island, you find a mysterious altar.");
+        System.out.println("1. Place your pendant on the altar");
+        System.out.println("2. Ignore the altar");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe altar glows and the forest speaks to you. 🏆 YOU BECOME THE FOREST GUARDIAN!");
+        } else {
+            System.out.println("\nYou are trapped by the island's magic forever. 💀 GAME OVER");
+        }
+    }
+
+    static void pathRiddleCave(int depth) {
+        System.out.println("\nA voice asks: 'I speak without a mouth, hear without ears, I have nobody, but I come alive with the wind. What am I?'");
+        System.out.println("1. An Echo");
+        System.out.println("2. A Shadow");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe cave opens revealing treasure and wisdom.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nThe cave seals shut forever. 💀 GAME OVER");
+        }
+    }
+
+    static void pathLostForest(int depth) {
+        System.out.println("\nYou wander aimlessly and find an abandoned hut.");
+        System.out.println("1. Enter the hut");
+        System.out.println("2. Continue wandering");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nInside the hut, you find supplies and a map.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nYou succumb to the wilds. 💀 GAME OVER");
+        }
+    }
+
+    // --- Branch
