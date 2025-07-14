@@ -258,4 +258,136 @@ public class ForestOfShadowsExpanded {
         }
     }
 
-    // --- Branch
+    // --- Branch 2: Pendant Path ---
+
+    static void pathPendant(int depth) {
+        System.out.println("\nYour pendant glows brighter and you hear a whisper.");
+        System.out.println("1. Follow the whisper");
+        System.out.println("2. Ignore and search for an exit");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathWhisper(depth + 1);
+        } else {
+            pathSearchExit(depth + 1);
+        }
+    }
+
+    static void pathWhisper(int depth) {
+        System.out.println("\nThe whisper guides you to an ancient tree with carvings.");
+        System.out.println("1. Touch the carvings");
+        System.out.println("2. Circle the tree looking for a hidden door");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe tree transports you to a secret glade.");
+            pathGlade(depth + 1);
+        } else {
+            System.out.println("\nYou find a hidden door under roots.");
+            pathUnderground(depth + 1);
+        }
+    }
+
+    static void pathGlade(int depth) {
+        System.out.println("\nIn the glade, a mysterious figure offers help.");
+        System.out.println("1. Accept help");
+        System.out.println("2. Refuse and explore alone");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe figure teaches you forest magic. 🏆 YOU GAIN POWER!");
+        } else {
+            System.out.println("\nYou are ambushed by dark spirits. 💀 GAME OVER");
+        }
+    }
+
+    static void pathUnderground(int depth) {
+        System.out.println("\nYou descend into tunnels filled with glowing crystals.");
+        System.out.println("1. Take a crystal");
+        System.out.println("2. Explore deeper without touching anything");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe crystal bonds to your pendant, unlocking visions.");
+            pathRuins(depth + 1);
+        } else {
+            System.out.println("\nYou find a sealed door with an inscription.");
+            pathSealedDoor(depth + 1);
+        }
+    }
+
+    static void pathSealedDoor(int depth) {
+        System.out.println("\nThe inscription reads: 'Speak the name of the forest spirit.'");
+        System.out.println("1. Say 'Elandor'");
+        System.out.println("2. Say 'Mirella'");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nThe door opens revealing a hidden library.");
+            pathLibrary(depth + 1);
+        } else {
+            System.out.println("\nThe tunnels collapse. 💀 GAME OVER");
+        }
+    }
+
+    static void pathLibrary(int depth) {
+        System.out.println("\nAncient knowledge is yours. You learn to control the forest.");
+        System.out.println("1. Use your knowledge to escape");
+        System.out.println("2. Stay and become the forest's protector");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            System.out.println("\nYou find the forest exit and return home. 🏆 YOU SURVIVE!");
+        } else {
+            System.out.println("\nYou merge with the forest forever. 🏆 YOU BECOME LEGEND!");
+        }
+    }
+
+    static void pathSearchExit(int depth) {
+        System.out.println("\nYou wander but the forest twists and turns endlessly.");
+        System.out.println("1. Climb a tree for direction");
+        System.out.println("2. Follow the sound of running water");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathClimbTree(depth + 1);
+        } else {
+            pathRiver(depth + 1);
+        }
+    }
+
+    static void pathRuins(int depth) {
+        System.out.println("\nYou reach ancient ruins covered in vines.");
+        System.out.println("1. Enter the ruins");
+        System.out.println("2. Search the perimeter");
+        int choice = getChoice(2);
+
+        if (choice == 1) {
+            pathInsideRuins(depth + 1);
+        } else {
+            System.out.println("\nYou find a hidden entrance leading to a chamber.");
+            pathInsideRuins(depth + 1);
+        }
+    }
+
+    static void pathInsideRuins(int depth) {
+        System.out.println("\nInside the chamber, there is a pedestal with three artifacts.");
+        System.out.println("1. A glowing sword");
+        System.out.println("2. A shimmering shield");
+        System.out.println("3. A mysterious book");
+        int choice = getChoice(3);
+
+        switch (choice) {
+            case 1:
+                System.out.println("\nYou wield the sword and feel unstoppable. 🏆 YOU WIN!");
+                break;
+            case 2:
+                System.out.println("\nThe shield protects you from traps and curses. 🏆 YOU WIN!");
+                break;
+            case 3:
+                System.out.println("\nThe book teaches you forgotten magic. 🏆 YOU WIN!");
+                break;
+        }
+    }
+
+}
